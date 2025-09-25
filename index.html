@@ -1,215 +1,558 @@
 <!DOCTYPE html>
 <html lang="es">
 <head>
-<meta charset="UTF-8">
-<title>Invitación Cumpleaños 🎂</title>
+
+<title>?? Prepárate para la Fiesta de Silver! ??</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Bubblegum+Sans&family=Pacifico&family=Righteous&display=swap" rel="stylesheet">
+<link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css" rel="stylesheet">
 <style>
+/* Animación que mueve el degradado de rosa */
+@keyframes movingGradient {
+    0% { background-position: 0% 50%; }
+    50% { background-position: 100% 50%; }
+    100% { background-position: 0% 50%; }
+}
+
+/* Animación de rebote para el título */
+@keyframes bounce {
+    0%, 20%, 50%, 80%, 100% { transform: translateY(0); }
+    40% { transform: translateY(-15px); }
+    60% { transform: translateY(-7px); }
+}
+
+/* Animación de rotación para iconos y fresitas */
+@keyframes rotate {
+    0% { transform: rotate(0deg); }
+    100% { transform: rotate(360deg); }
+}
+
+/* Animación de entrada original del texto de bienvenida (fadeInSlideUp) */
+@keyframes fadeInSlideUp {
+    0% { opacity: 0; transform: translateY(20px); }
+    100% { opacity: 1; transform: translateY(0); }
+}
+
+/* Animación para la flecha flotante */
+@keyframes floatArrow {
+    0% { transform: translateY(0px); }
+    50% { transform: translateY(-8px); }
+    100% { transform: translateY(0px); }
+}
+
+/* Animación para el color del botón */
+@keyframes buttonPulse {
+    0% { transform: scale(1); box-shadow: 0 0 5px #ff6b81; }
+    50% { transform: scale(1.03); box-shadow: 0 0 15px #ff4757; }
+    100% { transform: scale(1); box-shadow: 0 0 5px #ff6b81; }
+}
+
+/* Animación para el título 3D */
+@keyframes text3d {
+  0% { text-shadow: 2px 2px #ff4757, 4px 4px #ff6b81, 6px 6px #ff8a9a; }
+  25% { text-shadow: -2px 2px #ff4757, -4px 4px #ff6b81, -6px 6px #ff8a9a; }
+  50% { text-shadow: -2px -2px #ff4757, -4px -4px #ff6b81, -6px -6px #ff8a9a; }
+  75% { text-shadow: 2px -2px #ff4757, 4px -4px #ff6b81, 6px -6px #ff8a9a; }
+  100% { text-shadow: 2px 2px #ff4757, 4px 4px #ff6b81, 6px 6px #ff8a9a; }
+}
+
+/* Animación para los emojis flotantes */
+@keyframes float {
+    0% { transform: translateY(0px); }
+    50% { transform: translateY(-10px); }
+    100% { transform: translateY(0px); }
+}
+
 body {
-  font-family: Arial, sans-serif;
-  background: linear-gradient(135deg, #ff9a9e, #fad0c4);
-  display: flex;
-  justify-content: center;
-  align-items: center;
-  height: 100vh;
-  overflow: hidden;
+    font-family: Arial, sans-serif;
+    background: linear-gradient(135deg, #ff9a9e, #fad0c4);
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 100vh;
+    overflow: hidden;
+    color: #333;
+    transform: translateY(-20px);
 }
 
-/* Contenedor libro vertical */
 .book {
-  width: 400px;   /* ancho más pequeño */
-  height: 600px;  /* alto mayor */
-  perspective: 2000px;
-  position: relative;
+    width: 400px;
+    height: 600px;
+    perspective: 2000px;
+    position: relative;
+    box-shadow: 0 8px 20px rgba(0,0,0,0.4);
+    border-radius: 8px;
 }
 
-/* Páginas */
 .page {
-  width: 100%;
-  height: 100%;
-  background: #fff;
-  position: absolute;
-  top: 0;
-  left: 0;
-  box-shadow: 0 4px 10px rgba(0,0,0,0.3);
-  border-radius: 8px;
-  overflow: hidden;
-  backface-visibility: hidden;
-  transform-origin: left;
-  cursor: pointer;
-  transition: transform 2.5s ease; /* 🔹 Más lento */
+    width: 100%;
+    height: 100%;
+    position: absolute;
+    top: 0;
+    left: 0;
+    border-radius: 8px;
+    overflow: hidden;
+    backface-visibility: hidden;
+    transform-origin: left;
+    transition: transform 2.5s ease; /* Transición más rápida para el efecto en cadena */
 }
 
 /* Contenido de las páginas */
 .contenido {
-  padding: 30px;
+    padding: 15px;
+    display: flex;
+    flex-direction: column;
+    justify-content: flex-start;
+    align-items: center;
+    height: 100%;
+    text-align: center;
 }
 
-/* Portada encima */
+/* Portada (Hoja 1) */
 .front {
-  z-index: 2;
-  background: #ffeaea;
+    z-index: 3; /* Aumentamos el z-index para que la portada esté encima de todo */
+    background: linear-gradient(270deg, #ff9a9e, #ffafbd, #ffc3a0, #f8a0a8);
+    background-size: 400% 400%;
+    animation: movingGradient 15s ease infinite;
+    position: relative;
+    padding: 20px;
+    cursor: pointer;
 }
 
-/* Página interior */
+/* Página del formulario (Hoja 2) */
 .inside {
-  z-index: 1;
-  background: #fff;
+    z-index: 2; /* Está debajo de la portada, pero encima de la final */
+    background: rgba(255, 255, 255, 0.7);
+    backdrop-filter: blur(10px);
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    padding: 30px;
 }
 
-/* Clase para abrir el libro */
-.open {
-  transform: rotateY(-180deg);
+/* Página final (Hoja 3) */
+.final-page {
+    z-index: 1; /* Es la capa más baja */
+    background: linear-gradient(45deg, #f0f8ff, #e6e6fa);
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    padding: 30px;
+}
+
+/* Mensajes y estilos de la hoja final */
+.final-page h3 {
+    font-family: 'Bubblegum Sans', cursive;
+    font-size: 2.2em;
+    color: #ff69b4;
+    text-shadow: 2px 2px 0px rgba(255, 255, 255, 0.5);
+    margin-bottom: 20px;
+}
+.final-page p {
+    font-family: 'Righteous', cursive;
+    font-size: 1.2em;
+    color: #d1316b;
+    text-shadow: 1px 1px 1px rgba(0,0,0,0.1);
+}
+
+/* Animación de apertura */
+.front.open {
+    transform: rotateY(-180deg);
+}
+
+/* Esta es la clave para que la segunda página también se mueva */
+.inside.open {
+    transform: rotateY(-180deg);
+}
+
+/* Estilo para el texto de bienvenida con sombra morada */
+.welcome-text {
+    font-family: 'Pacifico', cursive;
+    font-size: 1.5em;
+    color: #fff;
+    text-shadow: 1px 1px 4px rgba(0,0,0,0.4), 1px 1px 2px #8A2BE2;
+    margin-top: 10px;
+    margin-bottom: 20px;
+    animation: fadeInSlideUp 1.5s ease-out 0.5s forwards;
+    opacity: 0;
+    position: relative;
+    z-index: 11;
+}
+
+/* Título de portada con efecto burbuja 3D */
+.front h1 {
+    font-family: 'Bubblegum Sans', cursive;
+    font-size: 2.5em;
+    color: #fff;
+    text-shadow:
+        -1px -1px 0 #e74c3c,
+        1px -1px 0 #e74c3c,
+        -1px 1px 0 #e74c3c,
+        1px 1px 0 #e74c3c,
+        2px 2px 0px #b03a2e,
+        3px 3px 0px #b03a2e,
+        4px 4px 5px rgba(0,0,0,0.4),
+        2px 2px 3px #8A2BE2;
+    letter-spacing: 2px;
+    text-align: center;
+    margin-bottom: 10px;
+    animation: bounce 2s infinite;
+    z-index: 11;
+    position: relative;
+}
+
+/* Estilo base para los párrafos de abajo con sombra morada */
+.front .contenido p {
+    font-family: 'Righteous', cursive;
+    font-size: 1.1em;
+    color: #fff;
+    font-weight: bold;
+    text-shadow: 1px 1px 3px rgba(0,0,0,0.3), 1px 1px 2px #8A2BE2;
+    margin-top: 5px;
+    z-index: 11;
+    position: relative;
+    opacity: 0;
+}
+
+.front .contenido p:nth-of-type(2) { animation: fadeInSlideUp 1.5s ease-out 2.5s forwards; }
+.front .contenido p:nth-of-type(3) { animation: fadeInSlideUp 1.5s ease-out 2.8s forwards; }
+.front .contenido p:nth-of-type(4) { animation: fadeInSlideUp 1.5s ease-out 3.1s forwards; }
+
+.portada-imagen-izquierda {
+    position: absolute;
+    bottom: 40px;
+    left: 20px;
+    width: 100px;
+    height: auto;
+    border-radius: 50%;
+    border: 3px solid #fff;
+    box-shadow: 0 2px 5px rgba(0,0,0,0.3);
+    z-index: 15;
+}
+
+.portada-imagen-derecha {
+    position: absolute;
+    bottom: 40px;
+    right: 20px;
+    width: 100px;
+    height: auto;
+    border-radius: 50%;
+    border: 3px solid #fff;
+    box-shadow: 0 2px 5px rgba(0,0,0,0.3);
+    z-index: 15;
+}
+
+.strawberry-decor {
+    position: absolute;
+    width: 65px;
+    height: auto;
+    animation: rotate 10s linear infinite;
+    z-index: 10;
+    opacity: 0.9;
+}
+.strawberry-decor.s1 { top: 50px; left: 50px; transform: rotate(20deg); animation-delay: 0.5s; }
+.strawberry-decor.s2 { top: 100px; right: 40px; transform: rotate(-30deg); animation-delay: 1.5s; }
+.strawberry-decor.s3 { bottom: 200px; left: 20px; transform: rotate(45deg); animation-delay: 2.5s; }
+.strawberry-decor.s4 { bottom: 120px; right: 60px; transform: rotate(-10deg); animation-delay: 3.5s; }
+.strawberry-decor.s5 { top: 200px; left: 100px; transform: rotate(0deg); animation-delay: 4.5s; }
+
+.animated-arrow {
+    position: absolute;
+    bottom: 90px;
+    font-size: 3em;
+    color: #FF69B4;
+    text-shadow: 2px 2px 5px #8A2BE2;
+    z-index: 12;
+    animation: fadeInSlideUp 1.5s ease-out 3.7s forwards, floatArrow 2s ease-in-out infinite 5s;
+    opacity: 0;
+}
+
+.inside h2 {
+    font-family: 'Bubblegum Sans', cursive;
+    font-size: 2.5em;
+    color: #fff;
+    text-shadow: 2px 2px #ff4757, 4px 4px #ff6b81, 6px 6px #ff8a9a;
+    animation: text3d 5s ease-in-out infinite;
+    margin-bottom: 5px;
+}
+
+.invitation-message {
+    font-family: 'Pacifico', cursive;
+    font-size: 1.2em;
+    color: #d1316b;
+    margin-bottom: 25px;
+    text-shadow: 1px 1px 2px rgba(0,0,0,0.1);
+}
+
+form {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 15px;
+    width: 100%;
 }
 
 label {
-  display: block;
-  margin-top: 10px;
-  font-weight: bold;
+    font-size: 1.1em;
+    font-weight: bold;
+    color: #d1316b;
+    margin-top: 10px;
 }
 
-input, select {
-  width: 100%;
-  padding: 6px;
-  margin-top: 5px;
-  border: 1px solid #ccc;
-  border-radius: 8px;
+input {
+    width: 90%;
+    padding: 12px;
+    border: 2px solid #ffafbd;
+    border-radius: 15px;
+    background: #fff5f8;
+    color: #555;
+    font-size: 1em;
+    font-family: 'Righteous', cursive;
+    transition: all 0.3s ease;
 }
 
-button {
-  margin-top: 15px;
-  padding: 10px;
-  background: #ff6b81;
-  color: #fff;
-  border: none;
-  border-radius: 8px;
-  cursor: pointer;
-  width: 100%;
+input:focus {
+    outline: none;
+    border-color: #ff69b4;
+    box-shadow: 0 0 8px rgba(255,105,180,0.5);
 }
 
-button:hover {
-  background: #ff4757;
+.asistencia-buttons {
+    display: flex;
+    justify-content: center;
+    gap: 10px;
+    margin-top: 15px;
 }
 
-#mensaje {
-  margin-top: 15px;
-  font-weight: bold;
+.asistencia-buttons button {
+    width: 90px;
+    padding: 10px;
+    border: 2px solid #ffafbd;
+    border-radius: 15px;
+    background: #fff5f8;
+    color: #d1316b;
+    cursor: pointer;
+    font-size: 1em;
+    font-family: 'Righteous', cursive;
+    transition: all 0.3s ease;
+    box-shadow: 0 2px 5px rgba(0,0,0,0.1);
+}
+
+.asistencia-buttons button:hover {
+    background: #ffecf0;
+    transform: translateY(-2px);
+    box-shadow: 0 4px 8px rgba(0,0,0,0.2);
+}
+
+.asistencia-buttons button.active {
+    background: #ff69b4;
+    color: #fff;
+    border-color: #ff69b4;
+    transform: scale(1.1);
+    box-shadow: 0 0 15px rgba(255,105,180,0.7);
+}
+
+#confirm-button {
+    margin-top: 25px;
+    width: 95%;
+    padding: 15px;
+    background: #ff6b81;
+    color: #fff;
+    border: none;
+    border-radius: 20px;
+    cursor: pointer;
+    font-size: 1.2em;
+    font-weight: bold;
+    letter-spacing: 1px;
+    box-shadow: 0 5px 15px rgba(255, 107, 129, 0.4);
+    transition: all 0.3s ease;
+    animation: buttonPulse 2s infinite;
+}
+
+#confirm-button:hover {
+    background: #ff4757;
+    transform: translateY(-2px);
+    box-shadow: 0 7px 20px rgba(255, 71, 87, 0.6);
 }
 
 canvas {
-  position: fixed;
-  top: 0;
-  left: 0;
-  width: 100%;
-  height: 100%;
-  pointer-events: none;
-  z-index: -1;
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    pointer-events: none;
+    z-index: -1;
 }
+
+.confetti-front {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    pointer-events: none;
+    z-index: 5;
+    opacity: 0.7;
+}
+
 </style>
+
 </head>
 <body>
 
 <canvas id="confetti"></canvas>
 
 <div class="book">
-  <!-- Portada -->
-  <div class="page front" id="frontPage">
-    <div class="contenido">
-      <h1>🎉 ¡Estás invitado! 🎉</h1>
-      <img src="https://static-cdn.jtvnw.net/jtv_user_pictures/fc67eed3-15b9-4ac1-97ff-836727396aa4-profile_image-300x300.jpeg" alt="Imagen silver" style="width:100%; height:auto; max-height: 250px; border-radius: 8px; margin-bottom: 20px;">
-      <p><b>15 de octubre</b> - <b>5:00 p.m.</b></p>
-      <p>Haz clic para abrir la invitación 🥳</p>
+    <div class="page front" id="frontPage">
+        <img src="https://img.buzzfeed.com/buzzfeed-static/static/2025-07/03/18/subbuzz/vBQ4_0pPH.jpg?downsize=700%3A%2A&output-quality=auto&output-format=auto" alt="Imagen de portada izquierda" class="portada-imagen-izquierda">
+        <img src="https://avatars.githubusercontent.com/u/20608902?v=4" alt="Imagen de portada derecha" class="portada-imagen-derecha">
+
+        <canvas id="confettiFront" class="confetti-front"></canvas>
+        <img src="https://png.pngtree.com/png-clipart/20220404/original/pngtree-catoon-strawberry-vector-and-png-png-image_7512647.png" alt="Fresa decorativa" class="strawberry-decor s1">
+        <img src="https://png.pngtree.com/png-clipart/20220404/original/pngtree-catoon-strawberry-vector-and-png-png-image_7512647.png" alt="Fresa decorativa" class="strawberry-decor s2">
+        <img src="https://png.pngtree.com/png-clipart/20220404/original/pngtree-catoon-strawberry-vector-and-png-png-image_7512647.png" alt="Fresa decorativa" class="strawberry-decor s3">
+        <img src="https://png.pngtree.com/png-clipart/20220404/original/pngtree-catoon-strawberry-vector-and-png-png-image_7512647.png" alt="Fresa decorativa" class="strawberry-decor s4">
+        <img src="https://png.pngtree.com/png-clipart/20220404/original/pngtree-catoon-strawberry-vector-and-png-png-image_7512647.png" alt="Fresa decorativa" class="strawberry-decor s5">
+
+        <div class="contenido">
+            <p class="welcome-text">¡Hola! Tenemos una gran sorpresa para ti...</p>
+            <h1>¡Es la Fiesta de Cumpleaños de Silver!</h1>
+            <p>Prepárate para mucha diversión,</p>
+            <p>risas y momentos inolvidables.</p>
+            <p><b>3 de octubre</b> - <b>5:00 p.m.</b></p>
+            <i class="fas fa-arrow-circle-right animated-arrow"></i> 
+        </div>
+        <span class="decoracion top-left">??</span>
+        <span class="decoracion top-right">??</span>
+        <span class="decoracion bottom-left">??</span>
+        <span class="decoracion bottom-right">??</span>
     </div>
-  </div>
 
-  <!-- Página interior -->
-  <div class="page inside">
-    <div class="contenido">
-      <h2>Confirma tu asistencia</h2>
-      <form id="miFormulario">
-        <label for="nombre">Nombre:</label>
-        <input type="text" id="nombre" name="nombre" required>
+    <div class="page inside" id="insidePage">
+        <div class="contenido">
+            <h2>Confirma tu asistencia para Silver</h2>
+            <p class="invitation-message">¡Tu presencia es la pieza clave para que esta celebración sea inolvidable!</p>
+            <form id="miFormulario">
+                <label for="nombre">Nombre:</label>
+                <input type="text" id="nombre" name="nombre" required placeholder="Escribe tu nombre aquí...">
 
-        <label for="asistencia">¿Asistirás?</label>
-        <select id="asistencia" name="asistencia" required>
-          <option value="">--Selecciona--</option>
-          <option value="Sí">Sí 🎉</option>
-          <option value="No">No ❌</option>
-          <option value="Tal vez">Tal vez 🤔</option>
-        </select>
+                <label>¿Asistirás?</label>
+                <div class="asistencia-buttons">
+                    <button type="button" data-asistencia="Sí">Sí</button>
+                    <button type="button" data-asistencia="No">No</button>
+                </div>
+                <input type="hidden" id="asistencia" name="asistencia" required>
 
-        <button type="submit">Confirmar ✅</button>
-      </form>
-      <p id="mensaje"></p>
+                <button type="submit" id="confirm-button">
+                    Confirmar <i class="fas fa-magic"></i>
+                </button>
+            </form>
+        </div>
     </div>
-  </div>
+
+    <div class="page final-page" id="finalPage">
+        <div class="contenido">
+            <img src="https://png.pngtree.com/png-clipart/20220404/original/pngtree-catoon-strawberry-vector-and-png-png-image_7512647.png" alt="Fresa" style="width: 120px; margin-bottom: 20px;">
+            <h3>¡Confirmado!</h3>
+            <p>Gracias por tu respuesta.</p>
+            <p>¡Esperamos verte en la fiesta!</p>
+        </div>
+    </div>
 </div>
 
 <script>
-// 🎉 Animación confeti
-const canvas = document.getElementById("confetti");
-const ctx = canvas.getContext("2d");
-canvas.width = window.innerWidth;
-canvas.height = window.innerHeight;
+// CONFETI GENERAL DEL FONDO
+const canvasGeneral = document.getElementById("confetti");
+const ctxGeneral = canvasGeneral.getContext("2d");
+canvasGeneral.width = window.innerWidth;
+canvasGeneral.height = window.innerHeight;
 
-let confettis = [];
+let confettisGeneral = [];
 for (let i = 0; i < 120; i++) {
-  confettis.push({
-    x: Math.random() * canvas.width,
-    y: Math.random() * canvas.height,
-    r: Math.random() * 6 + 2,
-    d: Math.random() * 0.05 + 0.02,
-    color: `hsl(${Math.random() * 360}, 100%, 50%)`
-  });
+    confettisGeneral.push({
+        x: Math.random() * canvasGeneral.width,
+        y: Math.random() * canvasGeneral.height,
+        r: Math.random() * 6 + 2,
+        d: Math.random() * 0.05 + 0.02,
+        color: `hsl(${Math.random() * 360}, 100%, 50%)`
+    });
 }
 
-function drawConfetti() {
-  ctx.clearRect(0, 0, canvas.width, canvas.height);
-  confettis.forEach(c => {
-    ctx.beginPath();
-    ctx.arc(c.x, c.y, c.r, 0, Math.PI * 2, false);
-    ctx.fillStyle = c.color;
-    ctx.fill();
-  });
-  updateConfetti();
+function drawConfettiGeneral() {
+    ctxGeneral.clearRect(0, 0, canvasGeneral.width, canvasGeneral.height);
+    confettisGeneral.forEach(c => {
+        ctxGeneral.beginPath();
+        ctxGeneral.arc(c.x, c.y, c.r, 0, Math.PI * 2, false);
+        ctxGeneral.fillStyle = c.color;
+        ctxGeneral.fill();
+    });
+    updateConfettiGeneral();
 }
 
-function updateConfetti() {
-  confettis.forEach(c => {
-    c.y += c.d * 5;
-    if (c.y > canvas.height) {
-      c.y = -10;
-      c.x = Math.random() * canvas.width;
-    }
-  });
+function updateConfettiGeneral() {
+    confettisGeneral.forEach(c => {
+        c.y += c.d * 5;
+        if (c.y > canvasGeneral.height) {
+            c.y = -10;
+            c.x = Math.random() * canvasGeneral.width;
+        }
+    });
 }
 
-setInterval(drawConfetti, 20);
+setInterval(drawConfettiGeneral, 20);
 
-// Abrir el libro al hacer clic
+// Abrir el libro al hacer clic en la portada
 const front = document.getElementById("frontPage");
+const inside = document.getElementById("insidePage");
+
 front.addEventListener("click", () => {
-  front.classList.add("open");
+    front.classList.add("open");
 });
 
-// 🎯 Conexión Google Sheets
-document.getElementById("miFormulario").addEventListener("submit", function(e) {
-  e.preventDefault();
-  let datos = {
-    nombre: e.target.nombre.value,
-    asistencia: e.target.asistencia.value
-  };
-  fetch("https://script.google.com/macros/s/AKfycby6ibjNM-7_M8M3UJZKVOJdifbtgO3eGDPwBL9hOgsPQxMdIO3ihCfv_rI-9cZdFx70mA/exec", {
-    method: "POST",
-    body: JSON.stringify(datos)
-  })
-  .then(res => res.text())
-  .then(txt => {
-    document.getElementById("mensaje").innerText = "✅ ¡Gracias! Tu asistencia fue registrada.";
-    e.target.reset();
-  })
-  .catch(err => {
-    document.getElementById("mensaje").innerText = "❌ Error al enviar. Intenta de nuevo.";
-  });
+// Lógica para los botones de asistencia del formulario
+document.addEventListener('DOMContentLoaded', () => {
+    const asistenciaButtons = document.querySelectorAll('.asistencia-buttons button');
+    const hiddenInput = document.getElementById('asistencia');
+    const form = document.getElementById("miFormulario");
+
+    asistenciaButtons.forEach(button => {
+        button.addEventListener('click', () => {
+            asistenciaButtons.forEach(btn => btn.classList.remove('active'));
+            button.classList.add('active');
+            hiddenInput.value = button.dataset.asistencia;
+        });
+    });
+
+    form.addEventListener("submit", function(e) {
+        e.preventDefault();
+        
+        if (!hiddenInput.value) {
+            alert("Por favor, selecciona una opción de asistencia.");
+            return;
+        }
+
+        let datos = {
+            nombre: e.target.nombre.value,
+            asistencia: hiddenInput.value
+        };
+        fetch("https://script.google.com/macros/s/AKfycby6ibjNM-7_M8M3UJZKVOJdifbtgO3eGDPwBL9hOgsPQxMdIO3ihCfv_rI-9cZdFx70mA/exec", {
+            method: "POST",
+            body: JSON.stringify(datos)
+        })
+        .then(res => res.text())
+        .then(txt => {
+            // En lugar de un mensaje, abre la siguiente hoja
+            front.classList.add('open');
+            inside.classList.add('open');
+        })
+        .catch(err => {
+            alert("? Error al enviar. Intenta de nuevo.");
+        });
+    });
 });
 </script>
 
