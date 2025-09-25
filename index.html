@@ -1,7 +1,7 @@
 <!DOCTYPE html>
 <html lang="es">
 <head>
-<meta name="viewport" content="width=device-width, initial-scale=1.0">
+
 <title> Prepárate para la Fiesta de Silver!</title>
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
@@ -76,20 +76,15 @@ body {
     transform: translateY(-20px);
 }
 
-/* Contenedor del libro (ahora se adapta a la pantalla) */
 .book {
-    width: 90vw; /* El ancho será el 90% del ancho de la pantalla del celular */
-    max-width: 400px; /* Pero no excederá los 400px en pantallas grandes */
-    height: 150vw; /* El alto será proporcional al ancho, ajustando a la relación de aspecto del diseño */
-    max-height: 600px; /* No excederá los 600px de alto en pantallas grandes */
+    width: 400px;
+    height: 600px;
     perspective: 2000px;
     position: relative;
     box-shadow: 0 8px 20px rgba(0,0,0,0.4);
     border-radius: 8px;
-    margin: 20px; /* Para que no esté pegado a los bordes en el celular */
 }
 
-/* Las páginas ahora ocupan todo el espacio del libro */
 .page {
     width: 100%;
     height: 100%;
@@ -100,29 +95,8 @@ body {
     overflow: hidden;
     backface-visibility: hidden;
     transform-origin: left;
-    transition: transform 2.5s ease;
+    transition: transform 2.5s ease; /* Transición más rápida para el efecto en cadena */
 }
-
-/* Ajusta el tamaño de las fuentes */
-.front h1 { font-size: 8vw; } /* Tamaño del título en la portada */
-.welcome-text { font-size: 4.5vw; } /* Texto de bienvenida */
-.front .contenido p { font-size: 3.5vw; } /* Párrafos de texto */
-
-/* Ajusta las imágenes de la portada */
-.portada-imagen-izquierda,
-.portada-imagen-derecha {
-    width: 25vw; /* Las imágenes ocuparán el 25% del ancho de la pantalla */
-    height: auto;
-    bottom: 25px; /* Ajusta la posición para que se vean bien en celulares */
-}
-
-/* Ajusta el tamaño de la flecha */
-.animated-arrow { font-size: 8vw; bottom: 60px; }
-
-/* Ajusta el tamaño de los títulos y textos de la segunda página */
-.inside h2 { font-size: 7vw; }
-.invitation-message { font-size: 4vw; }
-input, button { font-size: 4vw; padding: 3vw; }
 
 /* Contenido de las páginas */
 .contenido {
