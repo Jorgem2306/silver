@@ -2,7 +2,7 @@
 <html lang="es">
 <head>
 
-<title>Prepárate para la Fiesta de Silver!</title>
+<title> Prepárate para la Fiesta de Silver!</title>
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link href="https://fonts.googleapis.com/css2?family=Bubblegum+Sans&family=Pacifico&family=Righteous&display=swap" rel="stylesheet">
@@ -122,8 +122,10 @@ body {
 
 /* Página del formulario (Hoja 2) */
 .inside {
-    z-index: 2; /* Está debajo de la portada, pero encima de la final */
-    background: rgba(255, 255, 255, 0.7);
+    z-index: 2;
+    background: linear-gradient(45deg, #fce4ec, #fffde7);
+    background-size: 400% 400%;
+    animation: movingGradient 15s ease infinite;
     backdrop-filter: blur(10px);
     display: flex;
     flex-direction: column;
@@ -134,8 +136,10 @@ body {
 
 /* Página final (Hoja 3) */
 .final-page {
-    z-index: 1; /* Es la capa más baja */
-    background: linear-gradient(45deg, #f0f8ff, #e6e6fa);
+    z-index: 1;
+    background: linear-gradient(45deg, #fce4ec, #fffde7);
+    background-size: 400% 400%;
+    animation: movingGradient 15s ease infinite;
     display: flex;
     flex-direction: column;
     justify-content: center;
