@@ -1,8 +1,8 @@
 <!DOCTYPE html>
 <html lang="es">
 <head>
-
-<title> Prepárate para la Fiesta de Silver!</title>
+<link rel="icon" href="https://png.pngtree.com/png-clipart/20190116/ourmid/pngtree-pink-bow-hand-drawn-butterfly-machine-bow-illustrator-beautiful-bow-png-image_401741.jpg" type="image/png">
+<title>Prepárate para la Fiesta de Silver!</title>
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link href="https://fonts.googleapis.com/css2?family=Bubblegum+Sans&family=Pacifico&family=Righteous&display=swap" rel="stylesheet">
@@ -95,7 +95,7 @@ body {
     overflow: hidden;
     backface-visibility: hidden;
     transform-origin: left;
-    transition: transform 2.5s ease; /* Transición más rápida para el efecto en cadena */
+    transition: transform 2.5s ease;
 }
 
 /* Contenido de las páginas */
@@ -103,15 +103,40 @@ body {
     padding: 15px;
     display: flex;
     flex-direction: column;
-    justify-content: flex-start;
+    justify-content: flex-start; /* Alinea los elementos al inicio (arriba) */
     align-items: center;
     height: 100%;
     text-align: center;
+    padding-top: 3px; /* Añade un poco de padding superior para subir el contenido */
+}
+
+/* Estilo para el hipervínculo en la segunda hoja */
+.twitch-link {
+    font-family: 'Righteous', cursive;
+    font-size: 1.1em;
+    color: #9146FF; /* Color de Twitch */
+    text-decoration: none; /* Elimina el subrayado */
+    font-weight: bold;
+    margin-top: 5px; /* Ajusta este valor para más o menos separación */
+    margin-bottom: 20px;
+    transition: color 0.3s ease;
+    display: flex; /* Para alinear el icono y el texto */
+    align-items: center; /* Centrar verticalmente */
+    gap: 8px; /* Espacio entre el icono y el texto */
+}
+.twitch-link:hover {
+    color: #b779ff;
+}
+
+.twitch-logo {
+    width: 24px; /* Tamaño del logo de Twitch */
+    height: auto;
+    vertical-align: middle; /* Alineación con el texto */
 }
 
 /* Portada (Hoja 1) */
 .front {
-    z-index: 3; /* Aumentamos el z-index para que la portada esté encima de todo */
+    z-index: 3;
     background: linear-gradient(270deg, #ff9a9e, #ffafbd, #ffc3a0, #f8a0a8);
     background-size: 400% 400%;
     animation: movingGradient 15s ease infinite;
@@ -215,15 +240,19 @@ body {
     color: #fff;
     font-weight: bold;
     text-shadow: 1px 1px 3px rgba(0,0,0,0.3), 1px 1px 2px #8A2BE2;
-    margin-top: 5px;
+    margin-top: 1px;
     z-index: 11;
     position: relative;
     opacity: 0;
 }
 
+/* Ajuste de los tiempos de animación para los nuevos párrafos */
 .front .contenido p:nth-of-type(2) { animation: fadeInSlideUp 1.5s ease-out 2.5s forwards; }
 .front .contenido p:nth-of-type(3) { animation: fadeInSlideUp 1.5s ease-out 2.8s forwards; }
 .front .contenido p:nth-of-type(4) { animation: fadeInSlideUp 1.5s ease-out 3.1s forwards; }
+.front .contenido p:nth-of-type(5) { animation: fadeInSlideUp 1.5s ease-out 3.4s forwards; }
+.front .contenido p:nth-of-type(6) { animation: fadeInSlideUp 1.5s ease-out 3.7s forwards; }
+.front .contenido p:nth-of-type(7) { animation: fadeInSlideUp 1.5s ease-out 4.0s forwards; }
 
 .portada-imagen-izquierda {
     position: absolute;
@@ -247,6 +276,19 @@ body {
     border: 3px solid #fff;
     box-shadow: 0 2px 5px rgba(0,0,0,0.3);
     z-index: 15;
+}
+.front .contenido .hora-parrafo {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 8px;
+}
+
+.flag-icon {
+    width: 25px; /* Tamaño de la bandera */
+    height: auto;
+    border-radius: 3px;
+    box-shadow: 0 1px 3px rgba(0,0,0,0.2);
 }
 
 .strawberry-decor {
@@ -287,7 +329,7 @@ body {
     font-family: 'Pacifico', cursive;
     font-size: 1.2em;
     color: #d1316b;
-    margin-bottom: 25px;
+    margin-bottom: 5px;
     text-shadow: 1px 1px 2px rgba(0,0,0,0.1);
 }
 
@@ -303,7 +345,7 @@ label {
     font-size: 1.1em;
     font-weight: bold;
     color: #d1316b;
-    margin-top: 10px;
+    margin-top: 5px;
 }
 
 input {
@@ -328,7 +370,7 @@ input:focus {
     display: flex;
     justify-content: center;
     gap: 10px;
-    margin-top: 15px;
+    margin-top: 5px;
 }
 
 .asistencia-buttons button {
@@ -360,7 +402,7 @@ input:focus {
 }
 
 #confirm-button {
-    margin-top: 25px;
+    margin-top: 5px;
     width: 95%;
     padding: 15px;
     background: #ff6b81;
@@ -427,7 +469,19 @@ canvas {
             <h1>¡Es la Fiesta de Cumpleaños de Silver!</h1>
             <p>Prepárate para mucha diversión,</p>
             <p>risas y momentos inolvidables.</p>
-            <p><b>3 de octubre</b> - <b>5:00 p.m.</b></p>
+			<p>Ven a festejar este 3 de Octubre</p>
+			<p class="hora-parrafo">
+				<img src="https://flagcdn.com/mx.svg" alt="Bandera de México" class="flag-icon">
+				<span>Hora México - 4 p.m</span>
+			</p>
+			<p class="hora-parrafo">
+				<img src="https://flagcdn.com/pe.svg" alt="Bandera de Perú" class="flag-icon">
+				<span>Hora Perú - 5 p.m</span>
+			</p>
+			<p class="hora-parrafo">
+				<img src="https://flagcdn.com/es.svg" alt="Bandera de España" class="flag-icon">
+				<span>Hora España - 11 p.m</span>
+			</p>
             <i class="fas fa-arrow-circle-right animated-arrow"></i> 
         </div>
         <span class="decoracion top-left">??</span>
@@ -439,7 +493,11 @@ canvas {
     <div class="page inside" id="insidePage">
         <div class="contenido">
             <h2>Confirma tu asistencia para Silver</h2>
-            <p class="invitation-message">¡Tu presencia es la pieza clave para que esta celebración sea inolvidable!</p>
+            <a href="https://www.twitch.tv/silver_berry65" target="_blank" class="twitch-link">
+                <img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcSIZIRMX5-Or4ggVfjID7HhXrLzrdeOJ3kkUQ&s" alt="Logo de Twitch" class="twitch-logo">
+                @Silver_Berry65
+            </a>
+            <p class="invitation-message">¡Prepara tu cerebrito para '100 Fresitas Dijeron'! Tu respuesta es la clave para que la diversión comience. ¡Vamos a descubrir lo que las fresitas opinan!</p>
             <form id="miFormulario">
                 <label for="nombre">Nombre:</label>
                 <input type="text" id="nombre" name="nombre" required placeholder="Escribe tu nombre aquí...">
@@ -554,7 +612,7 @@ document.addEventListener('DOMContentLoaded', () => {
             inside.classList.add('open');
         })
         .catch(err => {
-            alert("? Error al enviar. Intenta de nuevo.");
+            alert("¡Error al enviar! Intenta de nuevo.");
         });
     });
 });
